@@ -16,5 +16,23 @@
 <body>
 	<div class="site-wrapper">
 		<header class="site-header">
-			<h1 class="site-title"><a href="#">Properties Offers</a></h1>
+		<?php if (is_home()) : ?>
+				<h1 class="site-title">
+					<a href="<?php echo esc_url(get_home_url()); ?>">Properties Offers</a>
+				</h1>
+			<?php else : ?>
+				<p class="site-title">
+					<a href="<?php echo esc_url(get_home_url()); ?>">Properties Offers</a>
+				</p>
+			<?php endif; ?>
+			
 		</header>
+		<div class="header-nav-menu">
+            <?php
+            if (has_nav_menu('primary_menu')) {
+                wp_nav_menu(array(
+                    'theme_location' => 'primary_menu',
+                ));
+            }
+            ?>
+        </div>
