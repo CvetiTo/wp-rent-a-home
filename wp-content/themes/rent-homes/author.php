@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-Archive
 <?php the_archive_title(); ?>
 <ul class="properties-listing">
 <?php  ?>

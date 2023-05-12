@@ -9,7 +9,7 @@
         <?php the_category(); ?>
             </a></h3>
         <div class="property-meta">
-            <span class="meta-location">Ovcha Kupel, Sofia</span>
+            <span class="meta-location"><?php echo rent_display_single_term(get_the_ID(), 'location'); ?></span>
             <span class="meta-total-area">Total area: 91.65 sq.m</span>
         </div>
         <div class="property-details">

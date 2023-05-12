@@ -12,14 +12,15 @@
 									<?php the_category(); ?>
 								</a></h3>
 							<div class="property-meta">
-								<span class="meta-location">Ovcha Cupel, Sofia</span>
-								<span class="meta-total-area">Price: 1,100 €/sq.m</span>
+								<p class="meta-date">Homes visits: <?php echo get_post_meta(get_the_ID(), 'visits_counts', true); ?></p>
+								<span class="meta-location"><?php echo rent_display_single_term(get_the_ID(), 'location'); ?></span>
+								<span class="meta-total-area">Price: 0,000 €/sq.m</span>
 							</div>
 
 							<div class="property-details grid">
 								<div class="property-details-card">
 									<div class="property-details-card-title">
-										<h3>Rooms</h3>
+										<h3>Rooms: <?php echo rent_display_single_term(get_the_ID(), 'room'); ?></h3>
 									</div>
 									<div class="property-details-card-body">
 										<ul>
@@ -50,25 +51,30 @@
 						</header>
 
 						<div class="property-body">
-							<?php the_content(); ?>
+							<?php  the_content(); ?>
 						</div>
 					</div>
 				</div>
 			</main>
 			<aside class="property-secondary">
 				<div class="property-image property-image-single">
-
-					<?php
+					<?php 
 					if (has_post_thumbnail()) {
-						the_post_thumbnail();
+						the_post_thumbnail('homes-thumbnail');
 					} else {
 						echo '<img src="wp-content\themes\rent-homes\assets\images\bedroom.jpg" alt="property image">';
 					}
 					?>
 				</div>
+				<a id="<?php echo get_the_ID(); ?>" class="button button-wide" href="#">Like the property (<?php echo get_post_meta( get_the_ID(), 'likes', true) ?>)</a>				
 			</aside>
 		</div>
 		
+		<h2 class="section-heading">Other similar properties:</h2>
+		<?php rent_update_homes_visit_count(get_the_ID()); ?>		
+		<ul class="properties-listing">
+			<?php echo rent_display_other_homes_per_location(get_the_ID()); ?>
+		</ul>
 	<?php endwhile; ?>
 
 <?php endif; ?>

@@ -1,6 +1,5 @@
 <?php get_header(); ?>
-Archive
-<?php the_archive_title(); ?>
+<h2><?php the_archive_title(); ?></h2>
 <ul class="properties-listing">
 
 <?php if (have_posts()) : ?>

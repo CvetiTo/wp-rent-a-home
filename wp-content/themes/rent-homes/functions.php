@@ -4,7 +4,8 @@
  *
  * @return void
  */
-add_theme_support( 'post-thumbnails' );
+add_theme_support( 'home-thumbnails' );
+add_image_size( 'home-thumbnail', 120, 120 );
 
 function rent_assets() {
     wp_enqueue_style( 'rent-home',
